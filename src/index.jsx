@@ -8,7 +8,6 @@ import { webSockets } from '@libp2p/websockets'
 import { mplex } from '@libp2p/mplex';
 import { noise } from '@chainsafe/libp2p-noise';
 import { all as filterAll } from "@libp2p/websockets/filters";
-import { multiaddr } from '@multiformats/multiaddr';
 
 async function initLibp2p() {
 	const libp2p = await createLibp2p({
@@ -18,10 +17,6 @@ async function initLibp2p() {
 	})
 
 	console.debug({ libp2p })
-	const peerMultiaddr = multiaddr(
-		'/dns4/ws.waku.apyos.dev/tcp/443/wss/p2p/16Uiu2HAm5wH4dPAV6zDfrBHkWt9Wu9iiXT4ehHdUArDUbEevzmBY'
-	)
-	// libp2p.dial(peerMultiaddr)
 
 	return libp2p
 }
